@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "queue.h"
 
-int enqueue(struct QueueElement**head, const int newValue)
+int enqueue(struct QueueElement** head, const int newValue)
 {
 	struct QueueElement* next = malloc(sizeof(struct QueueElement));
 	if (next == NULL)
@@ -12,10 +12,16 @@ int enqueue(struct QueueElement**head, const int newValue)
 	next->value = newValue;
 	next->back = *head;
 	*head = next;
+	return 0;
 }
 
 int dequeue(struct QueueElement** head)
 {
+	if (*head == NULL)
+	{
+		return 404;
+	}
+
 	return 0;
 }
 
@@ -36,15 +42,15 @@ int back()
 
 void printQueue(struct QueueElement* queue)
 {
-	for (int i = queue->next; i != NULL; queue->next)
-	{
-		printf("%d ", queue->value);
-	}
+	
 }
 
 int main()
 {
 	struct QueueElement* queue = NULL;
-	//const int errorCode1 = enqueue(&head, 2);
-	//printf("%d\n", head->value);
+	struct Queue atributes;
+	atributes.front = NULL;
+	atributes.back = NULL;
+	queue->front = &(atributes.front);
+	printf("%d", queue->front);
 }

@@ -3,12 +3,12 @@
 struct QueueElement
 {
 	int value;
-	struct QueueElement* next;
+	struct QueueElement* front;
 	struct QueueElement* back;
 };
 
-typedef struct
+struct Queue
 {
-	int* front;
-	int* back;
-} Queue;
+	int front;
+	int back;
+};
