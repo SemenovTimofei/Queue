@@ -1,35 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "queue.h"
 
-QueueElement* newQueue()
+int enqueue(struct QueueElement**head, const int newValue)
 {
-	QueueElement* head = NULL;
-	head = (QueueElement*)malloc(sizeof(QueueElement));
-	return head;
-}
-
-int enqueue(QueueElement**head, const int newValue)
-{
-	if (*head == NULL)
-	{
-		return 404;
-	}
-	QueueElement* next = malloc(sizeof(QueueElement));
+	struct QueueElement* next = malloc(sizeof(struct QueueElement));
 	if (next == NULL)
 	{
 		return 404;
 	}
 	next->value = newValue;
-	next->next = *head;
+	next->back = *head;
 	*head = next;
 }
 
-int dequeue(QueueElement** head)
+int dequeue(struct QueueElement** head)
 {
 	return 0;
 }
 
-int isEmpty(QueueElement* queue)
+int isEmpty(struct QueueElement* queue)
 {
 	return queue->value;
 }
@@ -44,7 +34,7 @@ int back()
 
 }
 
-void printQueue(QueueElement* queue)
+void printQueue(struct QueueElement* queue)
 {
 	for (int i = queue->next; i != NULL; queue->next)
 	{
@@ -54,7 +44,7 @@ void printQueue(QueueElement* queue)
 
 int main()
 {
-	QueueElement* queue = newQueue();
+	struct QueueElement* queue = NULL;
 	//const int errorCode1 = enqueue(&head, 2);
 	//printf("%d\n", head->value);
 }

@@ -1,14 +1,14 @@
 #pragma once
 
-typedef struct
+struct QueueElement
 {
 	int value;
-	Queue* atributes;
-	QueueElement* next;
-} QueueElement;
+	struct QueueElement* next;
+	struct QueueElement* back;
+};
 
 typedef struct
 {
-	int front;
-	int back;
+	int* front;
+	int* back;
 } Queue;
