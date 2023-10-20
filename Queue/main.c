@@ -9,22 +9,22 @@ int main()
     system("chcp 1251 > nul");
 
     ErrorCode result = ok;
-
+  
     Queue* queue = NULL;
 
-    printf("Создаем очередь\n");
+    printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n");
     createQueue(&queue);
 
     if (isEmpty(queue))
     {
-        printf("Очередь пуста\n\n");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n\n");
     }
     else
     {
-        printf("Очередь не пуста\n\n");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n\n");
     }
 
-    printf("Добавляем элементы в очередь\n");
+    printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n");
     enqueue(queue, 1);
     enqueue(queue, 2);
     enqueue(queue, 3);
@@ -33,32 +33,33 @@ int main()
 
     if (isEmpty(queue))
     {
-        printf("\nОчередь пуста\n\n");
+        printf("\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n\n");
     }
     else
     {
-        printf("\nОчередь не пуста\n\n");
+        printf("\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ\n\n");
     }
 
-    printf("%d это первый элемент\n", front(queue, &result));
-    printf("%d это последний элемент\n\n", back(queue, &result));
+    printf("%d пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n", front(queue, &result));
+    printf("%d пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n", back(queue, &result));
 
-    printf("Удаляем элемент очереди\n");
+    printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n");
     dequeue(queue);
 
     printQueue(queue);
 
-    printf("\nУдаляем очередь\n\n");
+    printf("\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\n\n");
     deleteQueue(queue);
 
     if (isEmpty(queue))
     {
-        printf("Очередь пуста");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
     }
     else
     {
-        printf("Очередь не пуста");
+        printf("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
     }
 
+    free(queue);
     return 0;
 }
