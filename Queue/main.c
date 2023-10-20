@@ -1,60 +1,65 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 #include "queue.h"
-
-QueueElement* newQueue()
-{
-	QueueElement* head = NULL;
-	head = (QueueElement*)malloc(sizeof(QueueElement));
-	return head;
-}
-
-int enqueue(QueueElement**head, const int newValue)
-{
-	if (*head == NULL)
-	{
-		return 404;
-	}
-	QueueElement* next = malloc(sizeof(QueueElement));
-	if (next == NULL)
-	{
-		return 404;
-	}
-	next->value = newValue;
-	next->next = *head;
-	*head = next;
-}
-
-int dequeue(QueueElement** head)
-{
-	return 0;
-}
-
-int isEmpty(QueueElement* queue)
-{
-	return queue->value;
-}
-
-int front()
-{
-
-}
-
-int back()
-{
-
-}
-
-void printQueue(QueueElement* queue)
-{
-	for (int i = queue->next; i != NULL; queue->next)
-	{
-		printf("%d ", queue->value);
-	}
-}
 
 int main()
 {
-	QueueElement* queue = newQueue();
-	//const int errorCode1 = enqueue(&head, 2);
-	//printf("%d\n", head->value);
+    system("chcp 1251 > nul");
+
+    ErrorCode result = ok;
+
+    Queue* queue;
+
+    printf("Создаем очередь\n");
+    createQueue(&queue);
+
+    if (isEmpty(queue))
+    {
+        printf("Очередь пуста\n\n");
+    }
+    else
+    {
+        printf("Очередь не пуста\n\n");
+    }
+
+    printf("Добавляем элементы в очередь\n");
+    enqueue(queue, 1);
+    enqueue(queue, 2);
+    enqueue(queue, 3);
+
+    printQueue(queue);
+
+    if (isEmpty(queue))
+    {
+        printf("\nОчередь пуста\n\n");
+    }
+    else
+    {
+        printf("\nОчередь не пуста\n\n");
+    }
+
+    printf("%d это первый элемент\n", front(queue, &result));
+    printf("%d это последний элемент\n\n", back(queue, &result));
+
+    printf("Удаляем элемент очереди\n");
+    dequeue(queue);
+
+    printQueue(queue);
+
+    printf("\nУдаляем очередь\n\n");
+    deleteQueue(queue);
+
+    if (isEmpty(queue))
+    {
+        printf("Очередь пуста");
+    }
+    else
+    {
+        printf("Очередь не пуста");
+    }
+
+    free(queue);
+    return 0;
 }
