@@ -1,14 +1,36 @@
 #pragma once
 
-struct QueueElement
+typedef enum ErrorCode
 {
-	int value;
-	struct QueueElement* front;
-	struct QueueElement* back;
-};
+	ok,
+	queueIsEmpty,
+	outOfMemory,
+} ErrorCode;
 
-struct Queue
-{
-	int front;
-	int back;
-};
+typedef struct Queue Queue;
+
+typedef struct QueueElement QueueElement;
+
+// ������� ��� �������� �������
+ErrorCode createQueue(Queue** queue);
+
+// ������� ��� ���������� �������� � �������
+ErrorCode enqueue(Queue* queue, const int value);
+
+// ������� ��� �������� �������� �� �������
+ErrorCode dequeue(Queue* queue);
+
+// ������� ��� ������ ���� ��������� �������
+void printQueue(Queue* queue);
+
+// ������� ��� �������� ������ �������
+bool isEmpty(Queue* queue);
+
+// �������, ������������ ������ ������� �������
+int front(Queue* queue, ErrorCode* errorCode);
+
+// �������, ������������ ��������� ������� �������
+int back(Queue* queue, ErrorCode* errorCode);
+
+// �������, ��������� �������
+void deleteQueue(Queue* queue);
