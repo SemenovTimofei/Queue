@@ -10,7 +10,7 @@ int main()
 
     ErrorCode result = ok;
 
-    Queue* queue;
+    Queue* queue = NULL;
 
     printf("Создаем очередь\n");
     createQueue(&queue);
@@ -60,6 +60,5 @@ int main()
         printf("Очередь не пуста");
     }
 
-    free(queue);
     return 0;
 }
